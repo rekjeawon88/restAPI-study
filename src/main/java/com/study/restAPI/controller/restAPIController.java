@@ -2,20 +2,20 @@ package com.study.restAPI.controller;
 
 import com.study.restAPI.dto.ItemDto;
 import com.study.restAPI.dto.ResponseDto;
-import com.study.restAPI.service.restAPIService;
+import com.study.restAPI.service.RestAPIService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-public class restAPIController {
+public class RestAPIController {
 
     // Ctrl + Alt + Enter = 현재 중 위에 빈 줄 삽입
     //      Shift + Enter = 현재 줄 아래에 빈 줄 삽입
 
     @Autowired
-    private restAPIService restAPIService;
+    private RestAPIService restAPIService;
     // @Service는 해당 클래스를 Spring Bean으로 등록하고
     // @Autowired는 등록된 Bean을 필요한 곳에 자동으로 주입해주는 역할을 함
 
@@ -25,6 +25,7 @@ public class restAPIController {
         log.info("dummy");
         return "dummy";
     }
+
 
     @GetMapping("/dummy2")
     public String dummy2() {
@@ -52,7 +53,7 @@ public class restAPIController {
     public ResponseDto registerItem(@RequestBody ItemDto item) {
         log.info("item: {}", item);
 
-//      restAPIService restAPIService = new restAPIService(); @Autowired가 없으면 써야 함
+//      RestAPIService restAPIService = new RestAPIService(); @Autowired가 없으면 써야 함
         boolean result = restAPIService.registerItem(item);
         if(result == true) { // restAPIService에 있는 작업이 성공한다면
             ResponseDto responseDto = new ResponseDto();
@@ -66,6 +67,13 @@ public class restAPIController {
         return responseDto;
         // Body를 보내기 때문에 Body에 해당하는 거라고 알리기 위해 @RequestBody
         // Dto가 데이터 받는 거를 String이 아닌 JSON등 다양한 형식으로 받을 수 있게 해줌
+    }
+
+    @GetMapping("/item")
+    public ItemDto getItem(@RequestParam("id") String id) {
+        ItemDto res = restAPIService.getItemById(id);
+
+        return res;
     }
 
 }

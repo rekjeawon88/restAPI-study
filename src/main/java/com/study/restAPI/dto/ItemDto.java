@@ -3,7 +3,6 @@ package com.study.restAPI.dto;
 public class ItemDto {
 
     private String id;
-
     private String name;
 
     // Alt + Ins 누르면 빠르게 Getter, Setter 설정 가능

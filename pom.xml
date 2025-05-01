@@ -13,36 +13,51 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>restAPI</name>
     <description>Demo project for Spring Boot</description>
-    <url/>
+
+    <!-- 빈 태그들 제거하거나 적절한 내용 추가 -->
+    <url>https://yourprojecturl.com</url>
+
     <licenses>
-        <license/>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
     </licenses>
+
     <developers>
-        <developer/>
+        <developer>
+            <id>developer</id>
+            <name>Your Name</name>
+            <email>your.email@example.com</email>
+        </developer>
     </developers>
+
     <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
+        <connection>scm:git:git://github.com/yourname/yourproject.git</connection>
+        <developerConnection>scm:git:ssh://github.com:yourname/yourproject.git</developerConnection>
+        <url>https://github.com/yourname/yourproject</url>
+        <tag>HEAD</tag>
     </scm>
+
     <properties>
         <java.version>17</java.version>
     </properties>
+
     <dependencies>
+        <!-- Spring Boot 기본 스타터 패키지 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
+        <!-- Swagger UI - API 문서화 도구 -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.2.0</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <!-- Lombok - 자바 코드 자동 생성 라이브러리 (@Getter, @Setter 등) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -50,30 +65,32 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- H2 Database - 인메모리 데이터베이스 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+        <!-- MyBatis - SQL 매핑 프레임워크 -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>3.0.2</version>
+            <version>3.0.4</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+        <!-- JPA - 자바 ORM 표준 프레임워크 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-
+        <!-- Spring Web - RESTful, Spring MVC를 위한 스타터 패키지 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Spring Test - 테스트를 위한 스타터 패키지 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -91,6 +108,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -109,5 +127,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
