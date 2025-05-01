@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@Slf4j
+@Slf4j // lombok, log찍기 위함
 public class RestAPIController {
 
     // Ctrl + Alt + Enter = 현재 중 위에 빈 줄 삽입
@@ -33,6 +33,7 @@ public class RestAPIController {
         return "dummy2";
     }
 
+    // parameter 받을 때는 @RequestParam 또는 @PathVariable
     @GetMapping("/member")
     public String getMember(@RequestParam("empNo") String empNo,
                             @RequestParam("year") int year) {
@@ -49,6 +50,8 @@ public class RestAPIController {
         // Request URL: http://127.0.0.1:8080/compony/8888
     }
 
+    // Parameter를 Body쪽, Body를 통해서 받고 싶으면 @RequestBody
+    // 보통 JSON으로 주고 받기 때문에 JSON 형태의 DTO를 만들고 이용
     @PostMapping("/item")
     public ResponseDto registerItem(@RequestBody ItemDto item) {
         log.info("item: {}", item);
